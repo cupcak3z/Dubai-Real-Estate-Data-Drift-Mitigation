@@ -1,0 +1,51 @@
+Option 1: Use files directly (CSV, Parquet, JSON)
+Pros:
+- Quick setup
+- Simple for experimentation
+
+Cons:
+- Less realistic
+- Limited exposure to production workflows
+
+Option 2: Load data into a database (Recommended)
+Pros:
+- More similar to real-world systems
+- Learn SQL and data engineering concepts
+- Easier to simulate incoming data batches
+- Better portfolio project
+
+Suggested workflow:
+
+Raw Data (CSV/Parquet)
+    ↓
+PostgreSQL Database
+    ↓
+Reference Dataset
+    ↓
+Current Dataset
+    ↓
+Drift Detection (PSI, KS Test, Evidently)
+    ↓
+Reports / Dashboard
+
+Store tables such as:
+- reference_data
+- current_data
+- drift_results
+- model_predictions (optional)
+
+Recommended learning path:
+1. Keep original data files.
+2. Create an ingestion script.
+3. Load data into PostgreSQL.
+4. Run drift detection on new batches.
+5. Save results and generate reports.
+
+This approach provides experience with:
+- SQL
+- ETL pipelines
+- Data drift monitoring
+- Reporting
+- MLOps concepts
+
+For a portfolio project, "CSV → PostgreSQL → Drift Detection → Reports" is stronger than using CSV files alone.
